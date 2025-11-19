@@ -104,7 +104,7 @@
   color: gold;
 }
 
-.web-form {
+.footer-form {
   padding: 5px;
   display: flex;
   flex-direction: column;
@@ -140,6 +140,15 @@
   display: flex;
   justify-content: center;
   margin-top: 5px;
+}
+
+.request-list-container{
+  padding: 5px;
+  display: flex;
+  gap: 10px;
+  background-color: rgb(218, 101, 101);
+  border-radius: 12px;
+  width: 85vw;
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -197,6 +206,7 @@
     display: flex;
     width: 8rem;
     background-color: rgb(216, 169, 99);
+    border-radius: 10px;
   }
 
   .web-header-title {

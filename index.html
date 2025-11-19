@@ -119,8 +119,8 @@
       </a>
     </div>
     <p>Optional form:</p>
-    <div class="web-form">
-      <form id="footer-form" action="">
+    <div class="footer-form">
+      <form id="web-form" action="">
         <div class="form-question">
           <label for="user-name">Name</label>
           <input type="text" id="user-name" name="user-name">
@@ -133,18 +133,25 @@
           <label for="user-mail">Your mail</label>
           <input type="text" id="user-mail" name="user-mail">
         </div>
-        <label for="component-question">What new components would you like to see in the web? Tell us!</label>
-        <div class="question-frame-div"><input type="text" id="component-question" name="component-question">
+        <label for="request-question">What new components would you like to see in the web? Tell us!</label>
+        <div class="question-frame-div"><input type="text" id="request-question" name="request-question">
         </div>
         <div class="button-wrapper">
           <input class="send-button" type="submit" value="Send">
         </div>
       </form>
     </div>
+    <p>Request list:</p>
+    <section class="request-list-container">
+      <ul id="request-list">
+        <!-- <li>Cesvic, None</li> -->
+      </ul>
+    </section>
   </footer>
 
   <script src="js/show-menu.js"></script>
   <script src="js/image-show.js"></script>
+  <script src="js/send-form.js"></script>
 </body>
 
 </html>
