@@ -12,6 +12,7 @@
 }
 
 #web-header {
+  top: 0;
   height: 7vh;
   background-color: rgb(190, 52, 52);
   display: flex;
@@ -19,6 +20,7 @@
   align-items: center;
   flex-direction: row;
   position: sticky;
+  z-index: 100;
 }
 
 #web-header h1 {
@@ -27,9 +29,14 @@
 
 .header-menu-icon {
   position: absolute;
+  cursor: pointer;
   left: 5px;
   margin-left: 10px;
   font-size: 30px;
+}
+
+.header-menu-icon:hover{
+  color: gold;
 }
 
 .main-container-item-menu {
@@ -132,7 +139,7 @@
 
 .question-frame-div input {
   border-radius: 10px;
-  height: 1.5rem;
+  height: 1.6rem;
   padding: 5px;
 }
 
@@ -142,7 +149,19 @@
   margin-top: 5px;
 }
 
+.send-button{
+  border-radius: 10px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.warning{
+  color: gold;
+  font-weight: bold;
+}
+
 .request-list-container{
+  list-style-position: inside;
   padding: 5px;
   display: flex;
   gap: 10px;
@@ -206,7 +225,6 @@
     display: flex;
     width: 8rem;
     background-color: rgb(216, 169, 99);
-    border-radius: 10px;
   }
 
   .web-header-title {
