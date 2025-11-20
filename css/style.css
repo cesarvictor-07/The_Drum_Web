@@ -24,7 +24,7 @@
 }
 
 #web-header h1 {
-  color: gold;
+  color: rgb(219, 188, 10);
 }
 
 .header-menu-icon {
@@ -35,12 +35,16 @@
   font-size: 30px;
 }
 
-.header-menu-icon:hover{
+.header-menu-icon:hover {
   color: gold;
 }
 
 .main-container-item-menu {
   display: none;
+}
+
+.container-menu-text h2 {
+  cursor: pointer;
 }
 
 .main-container-item-content {
@@ -52,6 +56,7 @@
   background-color: rgb(111, 186, 211);
   margin: 15px;
   padding: 20px;
+  border-radius: 1rem;
 }
 
 .content-section-imagentext-container {
@@ -62,7 +67,8 @@
 }
 
 .content-imagentext-container {
-  background-color: rgb(248, 245, 215);
+  border-radius: 1rem;
+  background-color: rgb(250, 249, 231);
   margin-bottom: 2rem;
   width: 60vw;
   height: auto;
@@ -98,7 +104,7 @@
 }
 
 .footer-icons-container {
-  border-radius: 10px;
+  border-radius: 1rem;
 }
 
 #footer-github-icon {
@@ -117,7 +123,7 @@
   flex-direction: column;
   gap: 10px;
   background-color: rgb(218, 101, 101);
-  border-radius: 12px;
+  border-radius: 1rem;
   width: 85vw;
 }
 
@@ -129,7 +135,7 @@
 }
 
 .form-question label {
-  width: 65px;
+  width: 5rem;
 }
 
 .question-frame-div {
@@ -138,7 +144,7 @@
 }
 
 .question-frame-div input {
-  border-radius: 10px;
+  border-radius: 1rem;
   height: 1.6rem;
   padding: 5px;
 }
@@ -149,25 +155,28 @@
   margin-top: 5px;
 }
 
-.send-button{
-  border-radius: 10px;
+.send-button {
+  border-radius: 1rem;
   padding: 5px;
   cursor: pointer;
 }
 
-.warning{
+.warning {
   color: gold;
   font-weight: bold;
 }
 
-.request-list-container{
-  list-style-position: inside;
+.request-list-container {
   padding: 5px;
   display: flex;
-  gap: 10px;
+  gap: 0.75rem;
   background-color: rgb(218, 101, 101);
   border-radius: 12px;
   width: 85vw;
+}
+
+#request-list {
+  list-style: none;
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
