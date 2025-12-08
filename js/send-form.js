@@ -1,15 +1,16 @@
-let requests = [
+let editingCard = null;
+let requests = JSON.parse(localStorage.getItem("request")) || [
   {
-    name: "Cesvic",
-    request: "Drums"
+    name: "Name: " + "Cesvic",
+    request: "Request: " + "Drums"
   },
   {
-    name: "Cesvic",
-    request: "Cymbals"
+    name: "Name: " + "Cesvic",
+    request: "Request: " + "Cymbals"
   },
   {
-    name: "Cesvic",
-    request: "Extras"
+    name: "Name: " + "Cesvic",
+    request: "Request: " + "Extras"
   },
 ];
 
@@ -17,14 +18,53 @@ function showRequests() {
   let aux = "";
 
   for (let i = 0; i < requests.length; i++) {
-    aux += `<li>${requests[i].name + ":"} ${requests[i].request}</li>`;
+    aux += `
+    <li>
+    <span>${requests[i].name}</span>
+    <span> ${requests[i].request}</span>
+
+    <button class="edit-button" data-index="${i}">Edit</button>
+    <button class="delete-button" data-index="${i}">Delete</button>
+    </li>
+    `;
   }
 
-  let requestList = document.getElementById("request-list");
+  let requestList = document.getElementById("request-cards");
 
   requestList.innerHTML = aux;
+
+  addDeleteListeners();
+  addEditListeners();
 }
 
+function addDeleteListeners() {
+  const deleteButton = document.querySelectorAll(".delete-button");
+
+  deleteButton.forEach(button => {
+    button.addEventListener("click", function () {
+      const index = this.dataset.index;
+
+      requests.splice(index, 1);
+      localStorage.setItem("request", JSON.stringify(requests));
+      showRequests();
+    });
+  });
+}
+
+function addEditListeners() {
+  const editButton = document.querySelectorAll(".edit-button");
+
+  editButton.forEach(button => {
+    button.addEventListener("click", function () {
+      const index = this.dataset.index;
+      editingIndex = index;
+
+
+      document.getElementById("user-name").value = requests[index].name.replace("Name: ", "");
+      document.getElementById("user-request").value = requests[index].request.replace("Request: ", "");
+    });
+  });
+}
 
 function listenToEvents() {
   let webForm = document.getElementById("web-form");
@@ -37,6 +77,7 @@ function listenToEvents() {
 }
 
 function validateForm(e) {
+  //Comprueba que el formulario no se pueda rellenar solo con espacios
   let name = e.target["user-name"].value.trim();
   let surname = e.target["user-surname"].value.trim();
   let mail = e.target["user-mail"].value.trim();
@@ -46,6 +87,8 @@ function validateForm(e) {
   document.getElementById("warning-surname").textContent = "";
   document.getElementById("warning-mail").textContent = "";
   document.getElementById("warning-request").textContent = "";
+
+  //Comprueba si algún campo del formulario está vacío
 
   let valid = true;
 
@@ -76,18 +119,27 @@ function addRequestToArray(event) {
   let requestText = event.target["request-question"].value;
 
   let newRequest = {
-    name: requestName,
-    request: requestText
+    name: "Name: " + requestName,
+    request: "Request: " + requestText
   }
 
-  requests.push(newRequest);
+  if (editingIndex !== null) {
+    requests[editingIndex] = newRequest;
+    editingIndex = null;
+  } else {
+    requests.push(newRequest);
+  }
+
+  localStorage.setItem("request", JSON.stringify(requests));
 
   showRequests();
+  event.target.reset();
 }
+
+document.getElementById("reset-local-storage").addEventListener("click", () => {
+  localStorage.clear();
+  location.reload();
+});
 
 listenToEvents();
 showRequests();
-
-
-
-//Acordarse del JSON

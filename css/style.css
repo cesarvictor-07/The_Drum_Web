@@ -6,7 +6,7 @@
 
 
 #main-container {
-  background-color: rgb(216, 169, 99);
+  background-color: rgb(21, 255, 0);
   display: flex;
   flex-wrap: wrap;
 }
@@ -16,10 +16,12 @@
   height: 7vh;
   background-color: rgb(190, 52, 52);
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: row;
   position: sticky;
+  gap: 1rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
   z-index: 100;
 }
 
@@ -27,8 +29,11 @@
   color: rgb(219, 188, 10);
 }
 
+.container-header-text {
+  display: none;
+}
+
 .header-menu-icon {
-  position: absolute;
   cursor: pointer;
   left: 5px;
   margin-left: 10px;
@@ -41,10 +46,6 @@
 
 .main-container-item-menu {
   display: none;
-}
-
-.container-menu-text h2 {
-  cursor: pointer;
 }
 
 .main-container-item-content {
@@ -79,6 +80,18 @@
   transition: 1s;
 }
 
+.content-imagentext-container.cymbals {
+  flex-direction: row-reverse;
+}
+
+.content-imagentext-container.sticks {
+  flex-direction: row;
+}
+
+.content-imagentext-container.extras {
+  flex-direction: column-reverse;
+}
+
 .content-imagentext-container:hover {
   transform: scale(1.05);
   border: 1px solid gold;
@@ -96,6 +109,7 @@
 }
 
 #web-footer {
+  width: 100vw;
   padding: 0.5rem;
   background-color: rgb(190, 52, 52);
   display: flex;
@@ -103,18 +117,29 @@
   flex-direction: column;
 }
 
-.footer-icons-container {
-  border-radius: 1rem;
+#github-icon {
+  color: black;
+  font-size: 2.45rem;
 }
 
-#footer-github-icon {
-  font-style: none;
+#github-icon:hover {
+  color: gold;
+}
+
+#instagram-icon {
   color: black;
   font-size: 2.5rem;
 }
 
-#footer-github-icon:hover {
+#instagram-icon:hover {
   color: gold;
+}
+
+#form-cards-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  gap: 5px;
 }
 
 .footer-form {
@@ -124,7 +149,7 @@
   gap: 10px;
   background-color: rgb(218, 101, 101);
   border-radius: 1rem;
-  width: 85vw;
+  width: auto;
 }
 
 .form-question {
@@ -138,13 +163,17 @@
   width: 5rem;
 }
 
+.form-question input {
+  border-radius: 0.25rem;
+}
+
 .question-frame-div {
   display: flex;
   flex-direction: column;
 }
 
 .question-frame-div input {
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   height: 1.6rem;
   padding: 5px;
 }
@@ -161,22 +190,68 @@
   cursor: pointer;
 }
 
+.send-button:hover {
+  font-weight: bold;
+}
+
+#reset-local-storage {
+  border-radius: 0.25rem;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#reset-local-storage:hover {
+  font-weight: bold;
+  background-color: red;
+}
+
 .warning {
   color: gold;
   font-weight: bold;
 }
 
-.request-list-container {
-  padding: 5px;
-  display: flex;
-  gap: 0.75rem;
-  background-color: rgb(218, 101, 101);
-  border-radius: 12px;
-  width: 85vw;
+.request-card-container {
+  gap: 2rem;
 }
 
-#request-list {
+.request-card-container ul {
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  background-color: rgb(218, 101, 101);
+  border-radius: 12px;
+  width: auto;
+}
+
+#request-cards li {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: rgb(170, 252, 225);
   list-style: none;
+  padding: 7px;
+  border-radius: 0.5rem;
+}
+
+.edit-button{
+  cursor: pointer;
+}
+
+.edit-button:hover{
+  font-weight: bold;
+  background-color: darkseagreen;
+  transition: 0.5s;
+}
+
+.delete-button{
+  cursor: pointer;
+}
+
+.delete-button:hover{
+  font-weight: bold;
+  background-color: rgb(185, 3, 3);
+  transition: 0.5s;
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -198,16 +273,30 @@
 
   .web-header-title {
     display: flex;
-    margin-left: 50px;
+    margin-left: 10px;
   }
 
   .header-menu-icon {
-    position: absolute;
-    left: 5px;
-    margin-left: 10px;
-    font-size: 30px;
+    display: none !important;
   }
 
+  .container-header-text {
+    margin-left: 10px;
+    margin-top: 17px;
+    margin-bottom: 17px;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .container-header-text h2 {
+    color: rgb(216, 169, 99);
+  }
+
+  #form-cards-container {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -230,9 +319,7 @@
 
   .main-container-item-menu {
     position: fixed;
-    left: 0;
     display: flex;
-    width: 8rem;
     background-color: rgb(216, 169, 99);
   }
 
@@ -241,8 +328,8 @@
     margin-left: 10px;
   }
 
-  .header-menu-icon {
-    display: none !important;
+  .container-header-text {
+    display: none;
   }
 
   .container-menu-text {
@@ -254,4 +341,7 @@
     gap: 2rem;
   }
 
+  #form-cards-container {
+    justify-items: left;
+  }
 }
