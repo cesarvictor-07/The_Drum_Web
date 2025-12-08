@@ -6,9 +6,10 @@
 
 
 #main-container {
-  background-color: rgb(21, 255, 0);
   display: flex;
   flex-wrap: wrap;
+  background-color: rgb(237, 242, 243);
+  margin-left: 0;
 }
 
 #web-header {
@@ -49,7 +50,6 @@
 }
 
 .main-container-item-content {
-  width: 100vw;
   background-color: rgb(237, 242, 243);
 }
 
@@ -115,6 +115,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  z-index: 100;
 }
 
 #github-icon {
@@ -234,21 +235,21 @@
   border-radius: 0.5rem;
 }
 
-.edit-button{
+.edit-button {
   cursor: pointer;
 }
 
-.edit-button:hover{
+.edit-button:hover {
   font-weight: bold;
   background-color: darkseagreen;
   transition: 0.5s;
 }
 
-.delete-button{
+.delete-button {
   cursor: pointer;
 }
 
-.delete-button:hover{
+.delete-button:hover {
   font-weight: bold;
   background-color: rgb(185, 3, 3);
   transition: 0.5s;
@@ -301,10 +302,20 @@
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-  #main-container {
+  /* #main-container {
     height: auto;
-    display: flex;
     align-items: flex-start;
+  } */
+
+  .main-container-item-menu {
+    display: flex;
+    width: 8rem;
+    background-color: rgb(216, 169, 99);
+    position: sticky;
+    top: 7vh;
+    height: calc(100vh - 7vh);
+    min-height: calc(100vh - 7vh);
+    align-self: flex-start;
   }
 
   .main-container-item-content {
@@ -315,12 +326,6 @@
 
   .content-imagentext-container {
     width: 25vw;
-  }
-
-  .main-container-item-menu {
-    position: fixed;
-    display: flex;
-    background-color: rgb(216, 169, 99);
   }
 
   .web-header-title {
@@ -339,9 +344,5 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
-  }
-
-  #form-cards-container {
-    justify-items: left;
   }
 }
